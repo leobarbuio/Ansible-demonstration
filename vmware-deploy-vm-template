@@ -1,0 +1,10 @@
+- name: Deploy a new VM based on the template
+  vmware.vmware_rest.vcenter_vmtemplate_libraryitems:
+    name: vm-from-template
+    library: '{{ nfs_lib.id }}'
+    template_library_item: '{{ my_template_item.id }}'
+    placement:
+      cluster: "{{ lookup('vmware.vmware_rest.cluster_moid', '/DCCSC/CL-ReadySolutions') }}"
+      folder: "{{ lookup('vmware.vmware_rest.folder_moid', '/DCCSC/Ansible') }}"
+    state: deploy
+  register: my_new_vm
