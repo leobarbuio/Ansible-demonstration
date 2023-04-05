@@ -1,3 +1,4 @@
+---
 - name: Deploy a new VM based on the template
   vmware.vmware_rest.vcenter_vmtemplate_libraryitems:
     name: vm-from-template
